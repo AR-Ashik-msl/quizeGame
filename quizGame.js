@@ -43,7 +43,8 @@
         new Questions('Where was the Zozo Championship 2019 held?',['U.S.A','Japan','Korea','Chaina'],2),
         new Questions('When was the International Animation Day proclaimed?',['1995','2002','2003','2011'],2),
         new Questions('Which country is to hold the first phase of Bishwa Ijtema?',['U.S.A','Japan','Bangladesh','India'],3),
-        new Questions('Who is the President of the World Bank?',['David Malpass','Antoini Kante','Donalt Trump','Diniel Scaloni'],1)
+        new Questions('Who is the President of the World Bank?',['David Malpass','Antoini Kante','Donalt Trump','Diniel Scaloni'],1),
+        new Questions('Who has taken office as the first female PM of Belgium?',['Antoinette Spaak',' C.Sophie Wilmes','Marie-Christine Marghem','Joëlle Milquet'],2)
     ]
 
 // -----score checking function------
