@@ -1,4 +1,12 @@
 (function() {
+    //-------- select necessary dom --------
+    let mainContainer = document.getElementById('main-container');
+    let Container = document.getElementById('container');
+    let displayInDiv = document.getElementById('main');
+    let displayScore = document.getElementById('sc');
+    let gameOver = document.querySelector('.gameOver');
+    let scx = document.getElementById('score-x');
+
     // ---------create a function constraction for creating several question object--------------
     function Questions(qname,answers,correctAns) {
         this.questionName = qname;
@@ -7,31 +15,64 @@
     }
     // create a prototype for displaying random question and answers
 
-    Questions.prototype.displayQuesnAndAns = function(score) {
-        console.log(this.questionName);
+    Questions.prototype.displayQuesnAndAns = function() {
+        // -------- print the random question --------------
+        displayInDiv.innerText = this.questionName + '\n';
+        //-------print the option and number --------------
         for (let j = 0; j <this.answers.length; j++) {
-            console.log(j+1,this.answers[j]);
+            //------- create new div inside the 'id=main' div-------------------
+           let newDiv =  document.createElement('div');
+           newDiv.className = 'option';
+           //--------create text node and add it into new div --------------------
+            newDiv.appendChild(document.createTextNode(j+1 + '.' + this.answers[j]));
+            // ------- add the new div into the 'id=main'-----------------------
+            displayInDiv.appendChild(newDiv);
         }
-        return this.inputAns(score);
+         return this.inputAns();
     }
-
+   
     // ------ create another prototype for take input answer-----
+    let cor = 0,wro = 0;
 
-    Questions.prototype.inputAns = function(score) {
+    Questions.prototype.inputAns = function() {
         let ans = prompt('Please choice correct one');
-
+        
         if (parseInt(ans) === this.correctAns) {
-            console.log('Correct answer!');
-            console.log('Your current score: ' + score(true) + '\n' + '---------------------------------------------------');
+            //------display current number -----------
+            displayScore.innerText = score(true);
+            //-----change the value if it is right or wrong ----------
+            scx.style.visibility = 'visible';
+            scx.innerText = 'correct answer!'
+            cor++;
+
         } else if (ans === 'exit') {
-            console.log('Game over:');
-            console.log('Your total score: ' + score(false) + '\n' + '---------------------------------------------------');
+            scx.style.visibility = 'hidden';
+            mainContainer.style.visibility = 'hidden';
+            container.style.display = 'block';
+            displayInDiv.style.visibility = 'hidden';
+            displayScore.style.visibility = 'hidden';
+            //---- create and append h4 header into the id = gameOver div ---------
+           let heading =  document.createElement('h4');
+           heading.appendChild(document.createTextNode('game over'))
+           gameOver.appendChild(heading);
+           gameOver.appendChild(document.createTextNode(' your total score: ' + score() + '\n' + 'Correct answere: ' + cor + '\n' + 'Wrong answere: ' + wro));
+           heading.style.color = 'tomato';
+           heading.style.textDecoration = 'none';
+           heading.style.fontSize = '3rem';
             return ans;
         } else {
-            console.log('Wrong answer! Try again');
-            this.displayQuesnAndAns(score)
+            // console.log(' Try again');
+            scx.style.visibility = 'visible';
+            scx.innerText = 'Wrong answer!'
+            wro++;
+            // this.displayQuesnAndAns()//score
+            // let sc = score(false);
+            displayScore.innerText = score(false);
         }
+
     }
+
+    
 
     //-------create question object and store into an array---------
 
@@ -50,9 +91,11 @@
 // -----score checking function------
     let sc = 0;
     function score(value) {
-        if (value) {
+        if (value === true) {
             sc++;
-        } else {
+            return sc;
+        } else if(value === false) {
+            sc--
             return sc;
         }
         return sc;
@@ -62,9 +105,13 @@
         // ----- create a random variable for printing random question -------
         let i = Math.floor(Math.random()*quesnObjArray.length);
 
-        if (quesnObjArray[i].displayQuesnAndAns(score) !== 'exit') {
+        if (quesnObjArray[i].displayQuesnAndAns() !== 'exit') {
             displayDynamicaly();
         }
     }
-displayDynamicaly();
+
+  displayDynamicaly();
+
 }());
+
+

@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font: normal 1.5rem arial,helvetica,sans-serif;
+    background-color: #cccccc;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+#main-header {
+    text-align: center;
+    margin: 5%;
+    padding: 10px;
+    background-color: blue;
+}
+.gameName {
+    color: #fff;
+    text-transform: uppercase;
+}
+#container {
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 2px 2px 3px 4px indigo;
+    height: 400px;
+    margin:2% 5%;
+    display: none;
+    position: relative;
+}
+#main-container {
+    margin:2% 5%;
+    display:flex;
+    height: 500px;
+    background-color: #fff;
+    box-shadow: 5px 5px 8px 3px blueviolet;
+    word-break: normal;
+    overflow: hidden;
+}
+.qusn {
+    flex: 2;
+    
+}
+.score {
+    flex:1;
+    background-color: lightcoral;
+}
+h4 {
+    text-decoration: underline gray;
+    text-transform: uppercase;
+    text-align: center;
+    color: indigo;
+    text-shadow: 2px 2px 3px blue;
+    /* border-bottom: 2px solid gray; */
+}
+
+#main {
+    display: block;
+    margin: 10px;
+    padding: 5px;
+}
+
+.option {
+    margin-top: 20px;
+    display: block;
+    color:indigo;
+    font:normal 1.5rem courier;
+}
+#sc  {
+    text-align: center;
+    font-size: 5rem;
+    letter-spacing: 0.8rem;
+    margin-top: 50px;
+    color: #fff;
+}
+.corOrWor {
+    visibility: hidden;
+    color: seashell;
+}
+.gameOver {
+    font:normal 1.5rem lucida,sans;
+    display: block;
+    position: absolute;
+    top: 20%;
+    left:30%;
+    right:30%;
+    text-align: center;
+    text-transform: capitalize;
+    letter-spacing: 0.2rem;
+    color:rgba(0, 100, 150, 0.5);
+}

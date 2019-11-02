@@ -4,9 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>something like </title>
+    <title>QuizGame</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header id="main-header">
+        <h2 class="gameName">quizGame</h2>
+    </header>
+    <div id="container">
+        <div class="gameOver"></div>
+    </div>
+<div id="main-container">
+    <div class="qusn">
+        <h4>question</h4>
+        <div id="main"></div>
+    </div>
+    <div class="score">
+        <h4>score</h4>
+        <div>
+            <h1 id="sc">00</h1>
+            <h5 id="score-x" style="visibility: hidden;">correct answere!</h5>
+        </div>
+    </div>
+</div>
 
 <script src="quizGame.js"></script>
 </body>
